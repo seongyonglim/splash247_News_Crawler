@@ -1,7 +1,7 @@
 # SplashNews Web Scraper
 
 ## Description
-`SplashNews`는 [Splash247](https://splash247.com/) 웹사이트에서 특정 키워드에 대한 뉴스 기사를 크롤링하는 파이썬 스크립트입니다. 제목, 게시 날짜, 기사 내용, 그리고 기사 링크를 추출하며, 추출된 데이터는 CSV 파일로 저장됩니다.
+`splash.py`는 [Splash247](https://splash247.com/) 웹사이트에서 특정 키워드에 대한 뉴스 기사를 크롤링하는 파이썬 스크립트입니다. 제목, 게시 날짜, 기사 내용, 그리고 기사 링크를 추출하며, 추출된 데이터는 CSV 파일로 저장됩니다.
 
 ## Features
 - 특정 키워드를 사용하여 뉴스 기사 검색
