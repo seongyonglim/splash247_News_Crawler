@@ -7,6 +7,7 @@
 - 특정 키워드를 사용하여 뉴스 기사 검색
 - 각 기사의 제목, 게시 날짜, 내용 및 링크 추출
 - 추출된 데이터를 CSV 파일로 저장
+- 크롤링한 기사 내용에서 단어의 빈도수 계산 및 CSV 파일로 저장
 
 ## Requirements
 - Python 3.x
@@ -27,7 +28,7 @@ pip install beautifulsoup4 selenium
 ```bash
 python splash.py
 ```
-3. 실행이 완료되면 `news_data.csv`라는 이름의 CSV 파일이 생성됩니다. 필요에 따라 파일 이름을 변경할 수 있습니다.
+3. 실행이 완료되면 news_data.csv와 word_frequency.csv라는 이름의 CSV 파일이 생성됩니다. 필요에 따라 파일 이름을 변경할 수 있습니다.
 
 ## Note
 - 인터넷 연결 상태나 웹사이트의 구조 변경에 따라 크롤링이 제대로 수행되지 않을 수 있습니다.

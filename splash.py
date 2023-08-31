@@ -3,6 +3,8 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import csv
+import re 
+from collections import Counter  
 
 '''
 만약 인터넷 속도가 너무 느려 크롤링이 잘 안된다면, self.load_time의 값을 높여 페이지 로딩을 더 오래 기다리도록 조정할 수 있습니다.
@@ -100,7 +102,30 @@ class SplashNews:
             for title, date, link, content in zip(self.title_list, self.date_list, self.link_list, self.content_list):
                 writer.writerow([title, date, link, content])
 
+    # 단어 빈도수 측정 함수
+    def count_word_frequency(self):
+        # 모든 기사 내용을 하나로 합치기
+        all_content = ' '.join(self.content_list)
+        
+        # 단어 추출을 위한 정규 표현식 (알파벳, 하이픈, 아포스트로피만 허용) + 모든 알파벳 소문자로 변환
+        words = re.findall(r'\b[a-zA-Z-\'’]+\b', all_content.lower())
+        
+        # 단어의 빈도수 계산
+        return Counter(words)
+
+    # 단어 빈도수 기반 내림차순 정렬 후 CSV 파일 저장 
+    def save_word_frequency_to_csv(self, filename='word_frequency.csv'):
+        word_freq = self.count_word_frequency()
+        # 단어 빈도수 기준으로 내림차순 정렬
+        sorted_word_freq = sorted(word_freq.items(), key=lambda x: x[1], reverse=True)
+
+        with open(filename, 'w', newline='', encoding='utf-8-sig') as file:
+            writer = csv.writer(file)
+            writer.writerow(['Word', 'Frequency'])  # 컬럼명 작성
+            writer.writerows(sorted_word_freq)
+
 news = SplashNews()
 news.get_link_list()
 news.get_details()
 news.save_to_csv()
+news.save_word_frequency_to_csv()
