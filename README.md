@@ -18,6 +18,7 @@
 1. 필요한 라이브러리를 설치합니다.
 ```bash
 pip install beautifulsoup4 selenium
+```
 2. Chrome WebDriver를 [여기](https://sites.google.com/a/chromium.org/chromedriver/downloads)에서 다운로드하고 설치 경로를 시스템 PATH에 추가합니다.
 
 ## Usage
@@ -25,6 +26,7 @@ pip install beautifulsoup4 selenium
 2. 스크립트를 실행합니다.
 ```bash
 python splash.py
+```
 3. 실행이 완료되면 `news_data.csv`라는 이름의 CSV 파일이 생성됩니다. 필요에 따라 파일 이름을 변경할 수 있습니다.
 
 ## Note
